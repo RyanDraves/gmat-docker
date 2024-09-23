@@ -1,0 +1,18 @@
+# Start the local `Dockerfile` as a development environment named `gmat`
+# that is interactive and mounts the current directory to `/app` in the container.
+# It should also support X11 forwarding for GUI applications.
+services:
+  gmat:
+    build: .
+    container_name: gmat
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/${USER}/.cache/gmat:/root/.local/share/
+    command: bash
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=${XAUTHORITY}
+    hostname: ${HOSTNAME}

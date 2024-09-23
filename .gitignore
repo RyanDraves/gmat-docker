@@ -1,0 +1,9 @@
+# 2D Plot data exports
+*.txt
+
+# The downloaded tarball
+*.tar.gz
+
+# Scenario files
+*.m
+*.m.bak
